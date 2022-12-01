@@ -12,5 +12,3 @@ for line in lines:
         total = 0
 
 print(max(cal_list))
-
-#test
