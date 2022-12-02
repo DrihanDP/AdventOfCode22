@@ -20,13 +20,32 @@ for line in lines:
                 myChose = 2
             else:
                 myChose = 3
-    if elfChose > myChose:
-        total += myChose
-    elif elfChose == myChose:
-        total += myChose
-        total += 3
+    if elfChose == 1:
+        if myChose == 1:
+            total += myChose
+            total += 3
+        elif myChose == 2:
+            total += myChose
+            total += 6
+        else:
+            total += myChose
+    elif elfChose == 2:
+        if myChose == 1:
+            total += myChose
+        elif myChose == 2:
+            total += myChose
+            total += 3
+        else:
+            total += myChose
+            total += 6
     else:
-        total += myChose
-        total += 6
+        if myChose == 1:
+            total += myChose
+            total += 6
+        elif myChose == 2:
+            total += myChose
+        else:
+            total += myChose
+            total += 3
 
 print(total)
