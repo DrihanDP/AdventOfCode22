@@ -14,38 +14,59 @@ for line in lines:
             else:
                 elfChose = 3
         else:
-            if val == 'x':
-                myChose = 1
-            elif val == 'y':
-                myChose = 2
-            else:
-                myChose = 3
-    if elfChose == 1:
-        if myChose == 1:
-            total += myChose
+            myChose = val
+    if val == 'x':
+        if elfChose == 1:
             total += 3
-        elif myChose == 2:
-            total += myChose
-            total += 6
-        else:
-            total += myChose
-    elif elfChose == 2:
-        if myChose == 1:
-            total += myChose
-        elif myChose == 2:
-            total += myChose
-            total += 3
-        else:
-            total += myChose
-            total += 6
+        elif elfChose == 2:
+            total += 1
+        else: 
+            total += 2
+    elif val == 'y':
+        total += elfChose
+        total += 3
     else:
-        if myChose == 1:
-            total += myChose
+        if elfChose == 1:
+            total += 2
             total += 6
-        elif myChose == 2:
-            total += myChose
-        else:
-            total += myChose
+        elif elfChose == 2:
             total += 3
+            total += 6
+        else:
+            total += 1
+            total += 6
+            # if val == 'x':
+            #     myChose = 1
+            # elif val == 'y':
+            #     myChose = 2
+            # else:
+            #     myChose = 3
+    # if elfChose == 1:
+    #     if myChose == 1:
+    #         total += myChose
+    #         total += 3
+    #     elif myChose == 2:
+    #         total += myChose
+    #         total += 6
+    #     else:
+    #         total += myChose
+    # elif elfChose == 2:
+    #     if myChose == 1:
+    #         total += myChose
+    #     elif myChose == 2:
+    #         total += myChose
+    #         total += 3
+    #     else:
+    #         total += myChose
+    #         total += 6
+    # else:
+    #     if myChose == 1:
+    #         total += myChose
+    #         total += 6
+    #     elif myChose == 2:
+    #         total += myChose
+    #     else:
+    #         total += myChose
+    #         total += 3
 
 print(total)
