@@ -58,12 +58,32 @@ letter_values = {
 
 total = 0
 
-for line in lines:
-    middle_index = len(line) // 2
-    first_half = line.strip("\n")[:middle_index]
-    second_half = line.strip("\n")[middle_index:]
-    common_list = set(first_half).intersection(second_half)
-    for val in common_list:
-        total += letter_values.get(val)
+# for line in lines:
+#     middle_index = len(line) // 2
+#     first_half = line.strip("\n")[:middle_index]
+#     second_half = line.strip("\n")[middle_index:]
+#     common_list = set(first_half).intersection(second_half)
+#     for val in common_list:
+#         total += letter_values.get(val)
 
+first_line = []
+second_line = []
+third_line = []
+
+for line in lines:
+    if first_line == []:
+        first_line = line.strip("\n")
+    elif second_line == []:
+        second_line = line.strip("\n")
+    else:
+        third_line = line.strip("\n")
+        first_and_second = set(first_line).intersection(second_line)
+        common_list = set(first_and_second).intersection(third_line)
+        print(common_list)
+        first_line = []
+        second_line = []
+        third_line = []
+        for val in common_list:
+            total += letter_values.get(val)
+            
 print(total)
