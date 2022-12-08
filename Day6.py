@@ -2,9 +2,9 @@ with open("M:\\Advent of code 22\\6.1.txt", 'r') as f:
     lines = f.readlines()
 
 buffer = ""
-total = 3
+total = 13
 start = 0
-end = 4
+end = 14
 
 
 for line in lines:
@@ -15,7 +15,7 @@ for letter in range(len(buffer)):
     start += 1
     end += 1
     total += 1
-    if len(check) == 4:
+    if len(check) == 14:
         break
     else:
         check = set()
