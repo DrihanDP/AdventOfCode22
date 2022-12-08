@@ -4,6 +4,7 @@ with open("M:\\Advent of code 22\\5.1.txt", 'r') as f:
 space_count = 0
 n = 4
 pop_list = []
+answer_list = []
 
 crate_dict = {
     "1": [],
@@ -60,8 +61,12 @@ for line in lines:
         splitLine = [x for x in line.strip("\n").split(" ")]
         for num in range(int(splitLine[1])):
             pop_list.append(crate_dict[splitLine[3]].pop(-1))
-            crate_dict[splitLine[5]].append(pop_list.pop(-1))
+        pop_list.reverse()
+        for val in range(len(pop_list)):
+            crate_dict[splitLine[5]].append(pop_list[val])
+        pop_list = []
 
 for key in crate_dict:
-     dict_list = crate_dict.get(key)
-     print(dict_list[len(dict_list) - 1])
+    dict_list = crate_dict.get(key)
+    answer_list.append(dict_list[len(dict_list) - 1][1])
+print("".join(answer_list))
