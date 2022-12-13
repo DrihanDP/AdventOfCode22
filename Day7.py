@@ -30,17 +30,24 @@ for line in lines:
         else:
             cwd[y] = int(x)
 
-def solve(dir = root):
-    if type(dir) == int:
-        return(dir, 0)
-    size = 0
-    ans = 0
-    for child in dir.values():
-        s, a = solve(child)
-        size += s
-        ans += a
-    if size <= 100000:
-        ans += size
-    return(size, ans)
 
-print(solve()[1])
+def size(dir = root):
+    if type(dir) == int:
+        return(dir)
+    return sum(map(size, dir.values()))
+
+
+threshold = size() - 40000000
+
+def solve(dir = root):
+    ans = float("inf")
+    if size(dir) >= threshold:
+        ans = size(dir)
+    for child in dir.values():
+        if type(child) == int:
+            continue
+        smallest_val = solve(child)
+        ans = min(ans, smallest_val)
+    return ans
+
+print(solve())
